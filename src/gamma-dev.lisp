@@ -1,26 +1,5 @@
 (in-package :gamma-dev)
 
-;;; Precomputed parameters
-(defstruct (precomp-params (:conc-name pcp-))
-  (n 0) (b1 0) (b2 0) (c1 0) (c2 0))
-
-(defun precomp-n (a)
-  (cond
-    ((< a 0.4) (/ 1 a))
-    ((< a 4.0) (+ (/ 1 a) (/ (* (/ 1 a) (- a 0.4)) 3.6)))
-    (T (/ 1 (sqrt a)))))
-
-(defun precomp-b1 (a n) (- a (/ 1 n)))
-
-(defun precomp-b2 (a n) (+ a (/ 1 n)))
-
-(defun precomp-c1 (a b1)
-  (if (< a 0.4)
-      0
-      (/ (* b1 (1- (log b1))) 2)))
-
-(defun precomp-c2 (b2) (/ (* b2 (1- (log b2))) 2))
-
 ;;; General gamma generator.
 (defclass gamma-gen ()
   ((precomp-params :documentation "Precomputed parameters."
@@ -37,10 +16,14 @@
   (let* ((n (precomp-n a))
          (b1 (precomp-b1 a n)) (b2 (precomp-b2 a n))
          (c1 (precomp-c1 a b1)) (c2 (precomp-c2 b2))
-         (precomp-param (make-precomp :n n :b1 b1 :b2 b2 :c1 c1 :c2 c2)))
+         (precomp-params
+           (make-precomp-params :n n :b1 b1 :b2 b2 :c1 c1 :c2 c2)))
     (make-instance 'gamma-gen
                    :precomp-params precomp-params
                    :a a :b b)))
+
+;; variable x in draw is seen as unused by sbcl.
+#+sbcl (declaim (sb-ext:muffle-conditions style-warning))
 
 (defmethod draw ((gamma-gen gamma-gen))
   "Draw a pseudorandom number using the gamma generator."

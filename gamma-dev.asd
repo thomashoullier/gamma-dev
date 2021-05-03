@@ -4,4 +4,6 @@
   :components
   ((:module "src"
     :components ((:file "package")
-                 (:file "gamma-dev" :depends-on ("package"))))))
+                 (:file "precomp-params" :depends-on ("package"))
+                 (:file "gamma-dev" :depends-on ("package"
+                                                 "precomp-params"))))))
