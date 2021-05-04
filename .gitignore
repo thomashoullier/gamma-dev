@@ -6,3 +6,6 @@
 *.asd~
 *.lisp#
 .#*
+
+# Histogram files
+*.txt
