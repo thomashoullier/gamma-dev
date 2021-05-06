@@ -2,9 +2,17 @@
 `gamma-dev` implements a pseudorandom number generator for the
 Gamma distribution [1].
 
+The following distributions are either special cases or derived
+easily from the gamma distribution:
+* ✖ [Beta](https://en.wikipedia.org/wiki/Beta_distribution)
+* ✖ Chi-square
+* ✖ Erlang
+* ✖ Exponential
+* ✖ F-distribution
+
 ## Usage
-### General gamma
-For the general gamma distribution, you need to instantiate a number
+### Gamma
+For the gamma distribution, you need to instantiate a number
 generator with the set of parameters you want to use. We use the
 following parameters:
 * `a` (alpha in [2]): shape parameter
@@ -42,8 +50,8 @@ We use the algorithm by Tanizaki [2]. It involves a rejection of
 uniform variates. We use the in-built `random`.
 
 ## Histograms
-### General gamma
-We generate histograms for the general gamma distribution with some
+### Gamma
+We generate histograms for the gamma distribution with some
 shape and scale parameters (see [histograms](doc/histograms.lisp)).
 
 ![gamma-histograms](doc/gamma-pdfs.svg)

@@ -6,7 +6,8 @@
     :components ((:file "package")
                  (:file "precomp-params" :depends-on ("package"))
                  (:file "gamma-dev" :depends-on ("package"
-                                                 "precomp-params")))))
+                                                 "precomp-params"))
+                 (:file "beta" :depends-on ("gamma-dev")))))
   :in-order-to ((test-op (test-op "gamma-dev/test"))))
 
 (defsystem gamma-dev/test
