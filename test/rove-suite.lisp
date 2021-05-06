@@ -7,7 +7,7 @@
 (deftest general-gamma
   (let ((generator) (a 1) (b 2))
     (testing "Instantiation"
-      (setf generator (gamma-dev:make-gamma-gen a b)) (pass "OK"))
+      (setf generator (gamma-dev:make-gamma-gen a b)) (pass "ok"))
     (testing "Reading parameters back"
       (ok (and (= a (gamma-dev:a generator))
                (= b (gamma-dev:b generator))) "ok"))

@@ -4,7 +4,7 @@ Gamma distribution [1].
 
 The following distributions are either special cases or derived
 easily from the gamma distribution:
-* ✖ [Beta](https://en.wikipedia.org/wiki/Beta_distribution)
+* ✖ [Beta](https://en.wikipedia.org/wiki/Beta_distribution) : Package `beta-dev`.
 * ✖ Chi-square
 * ✖ Erlang
 * ✖ Exponential

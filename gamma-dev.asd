@@ -15,5 +15,6 @@
   :depends-on ("rove" "gamma-dev")
   :components
   ((:module "test"
-    :components ((:file "rove-suite"))))
+    :components ((:file "rove-suite")
+                 (:file "beta"))))
   :perform (test-op (o c) (symbol-call :rove '#:run c)))
