@@ -4,7 +4,7 @@ Gamma distribution [1].
 
 The following distributions are either special cases or derived
 easily from the gamma distribution:
-* ✖ [Beta](https://en.wikipedia.org/wiki/Beta_distribution) : Package `beta-dev`.
+* ✓ [Beta](https://en.wikipedia.org/wiki/Beta_distribution) : Package `beta-dev`.
 * ✖ Chi-square
 * ✖ Erlang
 * ✖ Exponential
@@ -45,6 +45,16 @@ You can read back the parameters of the generator with:
 (b generator)
 ```
 
+### Beta
+In very much the same way:
+
+```common-lisp
+(setf generator (beta-dev:make-beta-gen alpha beta))
+(beta-dev:draw generator) ;=> pseudorandom number
+(beta-dev:alpha generator) ;=> alpha
+(beta-dev:beta generator) ;=> beta
+```
+
 ## Implementation
 We use the algorithm by Tanizaki [2]. It involves a rejection of
 uniform variates. We use the in-built `random`.
@@ -60,6 +70,10 @@ This looks good enough when compared with the analytical PDFs plotted
 on Wikipedia [3].
 
 ![wiki-gamma-pdfs](doc/wikipedia-gamma-pdfs.svg)
+
+### Beta
+![beta-histograms](doc/beta/beta-pdfs.svg)
+![wiki-beta-pdfs](doc/beta/wikipedia-beta-pdfs.svg)
 
 ## Caveats
 * There are some specializations etc. to perform for performance if that is
