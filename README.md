@@ -4,10 +4,12 @@ Gamma distribution [1].
 
 The following distributions are either special cases or derived
 easily from the gamma distribution:
-* ✓ [Beta](https://en.wikipedia.org/wiki/Beta_distribution) : Package `beta-dev`.
+* ✓ [Beta](https://en.wikipedia.org/wiki/Beta_distribution): Package `beta-dev`.
+* [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution):
+  is a special case of gamma. However, please use
+  [exp-dev](https://github.com/thomashoullier/exp-dev) as it is more efficient.
 * ✖ Chi-square
 * ✖ Erlang
-* ✖ Exponential
 * ✖ F-distribution
 
 ## Usage
