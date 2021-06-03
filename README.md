@@ -21,7 +21,7 @@ following parameters:
 * `b` (beta in [2]): scale parameter
 
 #### Instantiation
-**make-gamma-gen** a b => Instance of *gamma-gen*A
+**make-gamma-gen** a b => Instance of *gamma-gen*
 
 ```common-lisp
 (setf generator (make-gamma-gen a b))
